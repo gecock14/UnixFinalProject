@@ -186,7 +186,7 @@ def use_item(boss, item):
 	print "between his eyes. Pulling the key off from around his neck, you continue onwards."
     elif(boss == "vampire"):
 	print "Summoning you last vestigaes of courage, you jab the wooden stake into the vampires heart, and"
-	print "The vampire burns away, revealing a key. You bend down and take the key.**"
+	print "The vampire burns away, revealing a key. You bend down and take the key."
     return_main()
 
 def kicked(reason):
@@ -238,7 +238,7 @@ def prompt_dungeon_room():
     elif prompt == "crevice":
 	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
 	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand"
-	pring "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
+	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
     prompt_dungeon_room()	
 
 
