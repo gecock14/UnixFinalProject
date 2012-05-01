@@ -197,19 +197,16 @@ def prompt_dungeon_room():
 	enter_castle()
     elif prompt == "1":
         print ''' Item 1 specifics '''
-	if prompt not in inventory:
+	if 'item1' not in inventory:
 	    print '''you now have item 1'''
-	    inventory.append(prompt) 
+	    inventory.append('item1')
 	else:
 	    print "No item here"	
-	    prompt_dungeon_room()	
     elif prompt == "2":
 	print ''' Item 2 specifics '''
     elif prompt == "3":
 	print ''' Item 3 specifics '''
-    else:
-	print "That command was not valid"
-	prompt_dungeon_room()	
+    prompt_dungeon_room()	
 
 
 def kitchen_room():
@@ -222,20 +219,18 @@ def prompt_kitchen_room():
     prompt = raw_input('==> ').lower()
     if prompt == "b":
         enter_castle()
-    elif prompt == "1":
-        print ''' Item 1 specifics '''
-        if prompt not in inventory:
-            print '''you now have item 1'''
-	    inventory.append(prompt)
-    	else:
-	    print '''no item here'''
-	    prompt_kitchen_room()
     elif prompt == "2":
         print ''' Item 2 specifics '''
+        if 'item2' not in inventory:
+            print '''you now have item 2'''
+	    inventory.append('item2')
+    	else:
+	    print '''no item here'''
+    elif prompt == "1":
+        print ''' Item 1 specifics '''
     elif prompt == "3":
 	print ''' Item 3 specifics '''
-    else:
-	prompt_kitchen_room()
+    prompt_kitchen_room()
 
 
 
@@ -250,19 +245,12 @@ def prompt_bedroom_room():
     if prompt == "b":
         enter_castle()
     elif prompt == "1":
-        print ''' Item 1 specifics '''
-	if prompt not in inventory:
-	    print '''you now have item 1'''
-	    inventory.append(prompt) 
-	else:
-	    print '''no item here'''
-	    prompt_bedroom_room()	
+        print ''' Item 1 specifics '''	
     elif prompt == "2":
         print ''' Item 2 specifics '''
     elif prompt == "3":
         print ''' Item 3 specifics '''
-    else:
-	prompt_bedroom_room()
+    prompt_bedroom_room()
 
 def library_room():
     global inventory
@@ -276,17 +264,10 @@ def prompt_library_room():
         enter_castle()
     elif prompt == "1":
         print ''' Item 1 specifics '''
-	if prompt not in inventory:
-	    print '''you now have item 1'''
-	    inventory.append(prompt) 
-	else:
-	    print '''no item here'''
-	    prompt_library_room()	
     elif prompt == "2":
         print ''' Item 2 specifics '''
     elif prompt == "3":
         print ''' Item 3 specifics '''
-    else:
-	prompt_library_room()
+    prompt_library_room()
 
 start()
