@@ -57,6 +57,10 @@ def start_game():
     print "anything. You blink into the darkness trying to adjust to the minimal lighting, and slowly the outline of the"
     print "door that must have been shut appears. You struggle to your feet, every joint screaming in protest, and"
     print "trudge towards the door, your heart beat seeming louder with each step."
+    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down dank, dripping hallway. The smell of mold invades your nostrils,"
+    print "souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
+    print "Summoning the stregth to carry on, you take small steps, investigating the 7 doors branching off the grim"
+    print "grotto."
     print "Press 's' to start your adventure."
     while(1):
 	choice = raw_input('==> ').lower()
@@ -71,10 +75,7 @@ def start_game():
 def enter_castle():
     global keys
     os.system('clear')
-    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down dank, dripping hallway. The smell of mold invades your nostrils,"
-    print "souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
-    print "Summoning the stregth to carry on, you take small steps, investigating the 7 doors branching off the grim"
-    print "grotto. The first door is labeled 'Dungeon', and you discover that it is from here the foul stench eminates."
+    print "The first door is labeled 'Dungeon', and you discover that it is from here the foul stench eminates."
     print "Next to it is a door labeled 'Bedroom', and you notice it is opened just a small crack. On the other side of"
     print "hall are two more doors, the first labeled 'Kitchen', and the other, 'Library'. Making your way past all these"
     print "doors, you see at the end of the hall, a set of three doors side by side. Just the sight of the 'middle' door"
