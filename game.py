@@ -51,6 +51,12 @@ def instruction_screen():
 
 def start_game():
     os.system('clear')
+    print "The gentle pitter-platter of falling condensation hitting cold stone stirs you from your sleep. The room is"
+    print "cold...much too cold in fact. A door slams and a blast of air rushes across your bare face and your eyes snap"
+    print "open in horror. Who are you? Where are you? Your mind screams in the realization that you have no memory, no" 
+    print "anything. You blink into the darkness trying to adjust to the minimal lighting, and slowly the outline of the"
+    print "door that must have been shut appears. You struggle to your feet, every joint screaming in protest, and"
+    print "trudge towards the door, your heart beat seeming louder with each step."
     print "Press 's' to start your adventure."
     while(1):
 	choice = raw_input('==> ').lower()
@@ -65,13 +71,7 @@ def start_game():
 def enter_castle():
     global keys
     os.system('clear')
-    print "The gentle pitter-platter of falling condensation hitting cold stone stirs you from your sleep. The room is"
-    print "cold...much too cold in fact. A door slams and a blast of air rushes across your bare face and your eyes snap"
-    print "open in horror. Who are you? Where are you? Your mind screams in the realization that you have no memory, no" 
-    print "anything. You blink into the darkness trying to adjust to the minimal lighting, and slowly the outline of the"
-    print "door that must have been shut appears. You struggle to your feet, every joint screaming in protest, and"
-    print "trudge towards the door, your heart beat seeming louder with each step. You reach the door and push slowly,"
-    print "and with a loud creak, you find yourself looking down dank, dripping hallway. The smell of mold invades your nostrils,"
+    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down dank, dripping hallway. The smell of mold invades your nostrils,"
     print "souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
     print "Summoning the stregth to carry on, you take small steps, investigating the 7 doors branching off the grim"
     print "grotto. The first door is labeled 'Dungeon', and you discover that it is from here the foul stench eminates."
@@ -82,7 +82,6 @@ def enter_castle():
     print "in it. A loud bang from other side startles you, but once you've calmed down you take a look at the two"
     print "flanking doors. The one to the 'left' seems to have scratch marks all over it, and the one to the 'right' seems"
     print "to have a dark liquid fluid out from underneath it. The choice is yours, which room do you enter?"
-
 
     if(inventory):
 	print "Inventory: ", inventory
