@@ -203,7 +203,7 @@ def use_item(boss, item):
 	print "between his eyes. Pulling the key off from around his neck, you continue onwards."
     elif(boss == "vampire"):
 	print "Summoning you last vestigaes of courage, you jab the wooden stake into the vampires heart, and"
-	print "The vampire burns away, revealing a key. You bend down and take the key."
+	print "the vampire burns away, revealing a key. You bend down and take the key."
     return_main()
 
 def kicked(reason):
@@ -245,13 +245,13 @@ def prompt_dungeon_room():
     elif prompt == "hand":
         print "You discover a wooden stake grasped between the rotting finger, and carefully pry it out"
 	if 'pistol with silver bullets' not in inventory:
-	    print "You now have a wooden stake"
+	    print "You now have a wooden stake."
 	    inventory.append('wooden stake')
 	else:
-	    print "You have already taken the item from there"	
+	    print "You have already taken the item from there."	
     elif prompt == "cage":
 	print "Investigation reveals a few scurrying rats, but nothing of value."
-    elif prompt == "crevice":s
+    elif prompt == "crevice":
 	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
 	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand.s"
 	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
@@ -275,10 +275,10 @@ def prompt_kitchen_room():
         print "You sneek a peek inside, and see a glitter of silver, and assume it to be silverware. A more through investigation"
 	print "reveals a surprise: a pistol, equiped with what seems to be silver bullets." 
         if 'wooden stake' not in inventory:
-            print "You now have a pistol with silver bullets"
+            print "You now have a pistol with silver bullets."
 	    inventory.append('pistol with silver bullets')
     	else:
-	    print '''no item here'''
+	    print "You have already taken the item from there."	
     elif prompt == "pantry":
         print "The collapsed store room reveals nothing but moldy food and scurrying insects. Nothing in here."
     elif prompt == "sink":
