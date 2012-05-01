@@ -264,7 +264,7 @@ def prompt_kitchen_room():
     	else:
 	    print '''no item here'''
     elif prompt == "pantry":
-        print "The collapsed store room reveals nothing but a moldy food and scurrying insects. Nothing in here"
+        print "The collapsed store room reveals nothing but moldy food and scurrying insects. Nothing in here."
     elif prompt == "sink":
 	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here"
     prompt_kitchen_room()
