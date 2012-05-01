@@ -3,12 +3,15 @@
 import getpass, fileinput, os
 from sys import stdin, stdout, stderr, exit
 
-global stars
-stars = 0
+global keys
+keys = 0
 global defeated_Boss1
 defeated_Boss1 = 0
 global defeated_Boss2
 defeated_Boss2 = 0
+global inventory
+inventory = []
+
 
 def intro_screen():
     valid = 0
@@ -49,14 +52,51 @@ def instruction_screen():
 def start_game():
     os.system('clear')
     print "****Description of instructions and objectives****"
+    print "Press 'e' to enter the castle."
     while(1):
 	choice = raw_input('==> ').lower()
-    if choice == 'quit':
-        exit(0)
-    elif choice == 'e':
-	enter_castle()
-    else:
-         print "That's not an option, try 'e' to enter the castle or 'quit' to end the game.\n"
+	if choice == 'quit':
+            exit(0)
+    	elif choice == 'e':
+	    enter_castle()
+    	else:
+            print "That's not an option, try 'e' to enter the castle or 'quit' to end the game.\n"
+
+
+def enter_castle():
+    global keys
+    os.system('clear')
+    print "****Description of hallway****."
+    print "*****There are two doors in front of you. Which do you choose, '1' or '2'?****"
+    print "Keys: ",keys
+    while(1):
+        choice = raw_input('==> ').lower()
+        if (choice == 'quit'):
+            exit(0)
+        elif (choice == '1'):
+            werewolf_room()
+        elif (choice == '2'):
+            vampire_room()
+        elif(choice == '3' and keys is 2):
+            bigboss_room()
+	elif(choice == '3' and keys != 2):
+	    print "You must obtain the two keys to open this door."
+	    return_main()
+	elif(choice == '4'):
+	    dungeon_room()
+	elif(choice == '5'):
+	    kitchen_room()
+	elif(choice == '6'):
+	    library_room()
+	elif(choice == '7'):
+	    bedroom_room()
+
+
+def return_main():
+    print "Press 'b' to return to the main hall."
+    while(1):
+        if(raw_input('==> ').lower() == 'b'):
+            enter_castle()
 
 
 def start():
