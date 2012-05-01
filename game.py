@@ -162,7 +162,7 @@ def bigboss_room():
 
 def end_game():
     print "You blink, and blink again in the darkness. You realize that you're in your own bed, in your own house! It was"
-    print "just a dream! Feeling infinitly better, you retreat back under your covers. In the gloom, you hear you closet door"
+    print "just a dream! Feeling infinitly better, you retreat back under your covers. In the gloom, you hear your closet door"
     print "creak open..."
     print "The End...?"
     while(1):
@@ -185,7 +185,7 @@ def use_item(boss, item):
 	print "The beast lunges at you, narrowly missing your outstretched arm. You whip your pistol around and put two rounds"
 	print "between his eyes. Pulling the key off from around his neck, you continue onwards."
     elif(boss == "vampire"):
-	print "Summoning you last vestigaes of courage, you jab the wooden stake into the vampires heart, and"
+	print "Summoning your last vestigaes of courage, you jab the wooden stake into the vampires heart, and"
 	print "the vampire burns away, revealing a key. You bend down and take the key."
     return_main()
 
