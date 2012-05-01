@@ -68,6 +68,8 @@ def enter_castle():
     os.system('clear')
     print "****Description of hallway****."
     print "*****There are two doors in front of you. Which do you choose, '1' or '2'?****"
+    if(inventory):
+	print "Inventory: ", inventory
     print "Keys: ",keys
     while(1):
         choice = raw_input('==> ').lower()
@@ -155,13 +157,13 @@ def use_item(boss, item):
 	    break
 	else:
 	   continue
-
     if(boss == "werewolf"):
 	print "No not a silver bullet!!"
 	print "**The werewolf collapses onto the floor. You take the key from around his neck.**"
     elif(boss == "vampire"):
 	print "Noo! Not a wooden stake!"
 	print "**The vampire burns up into a pile of ashes with a key in it. You bend down and take the key.**"
+    return_main()
 
 def kicked(reason):
     print reason
