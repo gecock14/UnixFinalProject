@@ -92,6 +92,83 @@ def enter_castle():
 	    bedroom_room()
 
 
+def werewolf_room():
+    global inventory
+    print "*****Werewolf room descriptions and options****"
+    if('item1' not in inventory):
+	kicked("No man can face a werewolf bare handed!")
+    else:
+	use_item("werewolf", "item1")
+
+
+def vampire_room():
+    global inventory
+    print "*****Vampire room description and options****"
+    if('item2' not in inventory):
+        kicked("Your mortal ways cannot harm me!")
+    else:
+        use_item("vampire", "item2")
+
+
+def bigboss_room():
+    print "*****BIG BOSS room descriptions and options****"
+    dodged = 0
+    grabbed = 0
+    swing = 0
+    while(1):
+        action = raw_input('==> ').lower()
+        if(action == 'dodge' and dodged == 0):
+            print "**Pass phase 1**"
+            dodged = 1
+        elif(action == 'jump'):
+            kicked("**Wrong option**")
+        elif(action == 'punch'):
+            kicked("**wrong option**")
+        elif(action == 'grab' and dodged == 1 and grabbed == 0):
+            print "**Pass phase 2**"
+            grabbed = 1
+        elif(action == 'kick'):
+            kicked( "**wrong option**")
+        elif(action == 'swing' and grabbed == 1):
+            print "**Pass Phase 3**"
+        elif(action == 'drop' and swing == 0):
+            kicked("**wrong option**")
+        elif(action == 'throw' and swing == 0):
+            print "***Big Boss Dies***"
+            end_game()
+
+def end_game():
+    print "You Win!"
+    while(1):
+        print "Press 'm' to go to the main menu"
+        if(raw_input('==> ').lower() == 'm'):
+            start()
+
+
+def use_item(boss, item):
+    global keys
+    keys = keys + 1
+    while(1):
+	print "Press 'u' to use ", item
+	choice = raw_input('==> ')
+	if(choice == 'u'):
+	    break
+	else:
+	   continue
+
+    if(boss == "werewolf"):
+	print "No not a silver bullet!!"
+	print "**The werewolf collapses onto the floor. You take the key from around his neck.**"
+    elif(boss == "vampire"):
+	print "Noo! Not a wooden stake!"
+	print "**The vampire burns up into a pile of ashes with a key in it. You bend down and take the key.**"
+
+def kicked(reason):
+    print reason
+    return_main()
+
+
+
 def return_main():
     print "Press 'b' to return to the main hall."
     while(1):
