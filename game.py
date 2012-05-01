@@ -235,9 +235,9 @@ def prompt_dungeon_room():
 	    print "You have already taken the item from there"	
     elif prompt == "cage":
 	print "Investigation reveals a few scurrying rats, but nothing of value."
-    elif prompt == "crevice":
+    elif prompt == "crevice":s
 	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
-	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand"
+	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand.s"
 	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
     prompt_dungeon_room()	
 
@@ -266,7 +266,7 @@ def prompt_kitchen_room():
     elif prompt == "pantry":
         print "The collapsed store room reveals nothing but moldy food and scurrying insects. Nothing in here."
     elif prompt == "sink":
-	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here"
+	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here."
     prompt_kitchen_room()
 
 
