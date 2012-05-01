@@ -17,7 +17,7 @@ def intro_screen():
     valid = 0
     os.system('clear')
     print "Hello, " + getpass.getuser()
-    print "Welcome to ______________!"
+    print "Welcome to The Thing Behind the Walls!"
     print "To read the instructions, press 'i'."
     print "To begin the game press, 's'."
     while (not valid):
