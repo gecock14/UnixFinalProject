@@ -51,7 +51,6 @@ def instruction_screen():
 
 def start_game():
     os.system('clear')
-    #print "****Description of instructions and objectives****"
     print "Press 's' to start your adventure."
     while(1):
 	choice = raw_input('==> ').lower()
@@ -188,7 +187,7 @@ def use_item(boss, item):
 	print "between his eyes. Pulling the key off from around his neck, you continue onwards."
     elif(boss == "vampire"):
 	print "Summoning you last vestigaes of courage, you jab the wooden stake into the vampires heart, and"
-	print "The vampire burns away, revealing a key. You bend down and take the key.**"
+	print "The vampire burns away, revealing a key. You bend down and take the key."
     return_main()
 
 def kicked(reason):
@@ -229,18 +228,18 @@ def prompt_dungeon_room():
     if prompt == "b":
 	enter_castle()
     elif prompt == "hand":
-        print "You discover a wooden stake grasped between the rotting finger, and carefully pry it out"
-	if 'pistol with silver bullets' not in inventory:
-	    print "You now have a wooden stake"
+	if 'wooden stake' not in inventory:
+	    print "You discover a wooden stake grasped between the rotting finger, and carefully pry it out."
+	    print "You now have a wooden stake."
 	    inventory.append('wooden stake')
 	else:
 	    print "You have already taken the item from there"	
     elif prompt == "cage":
 	print "Investigation reveals a few scurrying rats, but nothing of value."
     elif prompt == "crevice":
-	print "You don't want to stick you hand in this dark crack, but you want to leave this castle even more. You gingerly"
-	print "insert you finger and begin to search the cranies when you feel a light brush against the back of your hand"
-	pring "Yanking you hand out in a panic, dozens of spiders crawl away. Nothing in there." 
+	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
+	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand"
+	print "Yanking you hand out in a panic, dozens of spiders crawl away. Nothing in there." 
     prompt_dungeon_room()	
 
 
@@ -257,18 +256,18 @@ def prompt_kitchen_room():
     prompt = raw_input('==> ').lower()
     if prompt == "b":
         enter_castle()
-    elif prompt == "drawer":
-        print "You sneek a peek inside, and see a glitter of silver, and assume it to be silverware. A more through investigation"
-	print "reveals a surprise: a pistol, equiped with what seems to be silver bullets." 
-        if 'wooden stake' not in inventory:
+    elif prompt == "drawer": 
+        if 'pistol with silver bullets' not in inventory:
+	    print "You sneek a peek inside, and see a glitter of silver, and assume it to be silverware. A more thorough investigation"
+	    print "reveals a surprise: a pistol, equiped with what seems to be silver bullets."
             print "You now have a pistol with silver bullets"
 	    inventory.append('pistol with silver bullets')
     	else:
-	    print '''no item here'''
+	    print "You've already taken what is here."
     elif prompt == "pantry":
-        print "The collapsed store room reveals nothing but a moldy food and scurrying insects. Nothing in here"
+        print "The collapsed store room reveals nothing but moldy food and scurrying insects. Nothing in here"
     elif prompt == "sink":
-	print "Pluging you nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here"
+	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here"
     prompt_kitchen_room()
 
 
@@ -290,17 +289,17 @@ def prompt_bedroom_room():
         print "Pulling back the sheets, you find the source of the blood: a rat. There isn't much left however, "
 	print "whatever did this is a force to be reckoned with."	
     elif prompt == "dresser":
-        print "Pulling open the door, a black figure jumps out and at your face. Smacking with your hand, you notice that it"
+        print "Pulling open the door, a black figure jumps out at your face. Smacking with your hand, you notice that it"
 	print "is a bat, and calm down as it flies away. Nothing else of value in here"
     elif prompt == "under":
-        print "Gathering you courage, you lean over, and prepare to lift the skirt. You sneek a quick peek, and are relieved"
-	print "that nothing is waiting for you However, there is nothing of value."
+        print "Gathering your courage, you lean over, and prepare to lift the skirt. You sneek a quick peek, and are relieved"
+	print "that nothing is waiting for you. However, there is nothing of value."
     prompt_bedroom_room()
 
 def library_room():
     global inventory
     print "The door to the library opens efortlessly, exposing the winding stairs within. Taking them upwards,"
-    print "you enter into a study, lined with bookshelves and curios. Three items catch you eye, a conspicuous"
+    print "you enter into a study, lined with bookshelves and curios. Three items catch your eye, a conspicuous"
     print "'bookshelf', a 'desk', and a 'globe'. Which do you search?"
     prompt_library_room()
 
@@ -310,7 +309,7 @@ def prompt_library_room():
     if prompt == "b":
         enter_castle()
     elif prompt == "bookshelf":
-        print "You peruse the shelf, seeing strange title like 'Necromicon' and 'Grimore Auditora', as well as dozens of"
+        print "You peruse the shelf, seeing strange titles like 'Necromicon' and 'Grimore Auditora', as well as dozens of"
 	print "book titles that seem to be in another languge. Quite interesting, but not useful in the least."
     elif prompt == "desk":
         print "You find nothing but a few sheets of paper written in an oblique language."
