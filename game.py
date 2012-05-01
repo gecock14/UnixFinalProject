@@ -5,8 +5,10 @@ from sys import stdin, stdout, stderr, exit
 
 global keys
 keys = 0
-global defeated
-defeated = []
+global defeated_Boss1
+defeated_Boss1 = 0
+global defeated_Boss2
+defeated_Boss2 = 0
 global inventory
 inventory = []
 
@@ -38,8 +40,8 @@ def instruction_screen():
 	stderr.write("Error opening instructions\n")
 	exit(1)
     for line in stdin:
-	stdout.write(line)
-    print "\n\nPress 'b' to return to the opening screen."
+	print line
+    print "Press 'b' to return to the opening screen."
     if raw_input('==> ').lower() == 'b':
         selectedOption = 'b'
     else:
@@ -49,13 +51,6 @@ def instruction_screen():
 
 def start_game():
     os.system('clear')
-    global keys
-    keys = 0
-    global defeated
-    defeated = []
-    global inventory
-    inventory = []
-
     print "The gentle pitter-platter of falling condensation hitting cold stone stirs you from your sleep. The room is"
     print "cold...much too cold in fact. A door slams and a blast of air rushes across your bare face and your eyes snap"
     print "open in horror. Who are you? Where are you? Your mind screams in the realization that you have no memory, no" 
@@ -116,36 +111,26 @@ def enter_castle():
 
 def werewolf_room():
     global inventory
-    global defeated
-    if('werewolf' not in defeated):
-	print "With a touch of your hand, the claw-marked door gives way. Peering in you are startled by a blast of"
-	print "warm air to the face. Suddenly aware that you are not alone, you flick a match, and find yourself face"
-	print "face with a mangy coat of fur and a terrifying set of teeth. You're staring a werewolf in the face!"
-	print" What do you do?!?"
+    print "With a touch of your hand, the claw-marked door gives way. Peering in you are startled by a blast of"
+    print "warm air to the face. Suddenly aware that you are not alone, you flick a match, and find yourself face"
+    print "face with a mangy coat of fur and a terrifying set of teeth. You're staring a werewolf in the face!"
+    print" What do you do?!?"
     if('pistol with silver bullets' not in inventory):
 	kicked("You have no way of fighting such a beast, what is it you need again? Silver bullets?")
-    elif('werewolf' not in defeated):
-	use_item("werewolf", "pistol with silver bullets")
     else:
-	print "The werewolf remains lying on the floor."
-	return_main()
+	use_item("werewolf", "pistol with silver bullets")
 
 
 def vampire_room():
     global inventory
-    global defeated
-    if('vampire' not in defeated):
-	print "Fighting your revulsion at the sight of what is now clearly seeping blood, you push the door inwards"
-	print "and view the room inside. You see what seems to be a coffin in the middle of the room, and approach it"
-	print "peering inside. You reel back in disgust as you lay eyes on the bloated and disgusting figure laying"
-	print "within. To your rising horror, the pale monstrosity sits up...and smiles at you. What do you do?!?"
+    print "Fighting your revulsion at the sight of what is now clearly seeping blood, you push the door inwards"
+    print "and view the room inside. You see what seems to be a coffin in the middle of the room, and approach it"
+    print "peering inside. You reel back in disgust as you lay eyes on the bloated and disgusting figure laying"
+    print "within. To your rising horror, the pale monstrosity sits up...and smiles at you. What do you do?!?"
     if('wooden stake' not in inventory):
         kicked("You have no way of stopping him, you stumble out of the room, slamming the door behind you, and holding back the rising bile in your throat.")
-    elif('vampire' not in defeated):
-        use_item("vampire", "wooden stake")
     else:
-	print "All that remains of the vampire is a pile of ash."
-	return_main()
+        use_item("vampire", "wooden stake")
 
 
 def bigboss_room():
@@ -177,7 +162,7 @@ def bigboss_room():
 
 def end_game():
     print "You blink, and blink again in the darkness. You realize that you're in your own bed, in your own house! It was"
-    print "just a dream! Feeling infinitly better, you retreat back under your covers. In the gloom, you hear your closet door"
+    print "just a dream! Feeling infinitly better, you retreat back under your covers. In the gloom, you hear you closet door"
     print "creak open..."
     print "The End...?"
     while(1):
@@ -188,16 +173,14 @@ def end_game():
 
 def use_item(boss, item):
     global keys
-    global defeated
     keys = keys + 1
     while(1):
 	print "Press 'u' to use ", item
 	choice = raw_input('==> ')
 	if(choice == 'u'):
-	    defeated.append(boss)
 	    break
 	else:
-	   print "Invalid option. Try 'u' to use the ", item
+	   continue
     if(boss == "werewolf"):
 	print "The beast lunges at you, narrowly missing your outstretched arm. You whip your pistol around and put two rounds"
 	print "between his eyes. Pulling the key off from around his neck, you continue onwards."
@@ -209,6 +192,7 @@ def use_item(boss, item):
 def kicked(reason):
     print reason
     return_main()
+
 
 
 def return_main():
@@ -244,7 +228,7 @@ def prompt_dungeon_room():
 	enter_castle()
     elif prompt == "hand":
         print "You discover a wooden stake grasped between the rotting finger, and carefully pry it out"
-	if 'pistol with silver bullets' not in inventory:
+	if 'wooden stake' not in inventory:
 	    print "You now have a wooden stake."
 	    inventory.append('wooden stake')
 	else:
@@ -274,7 +258,7 @@ def prompt_kitchen_room():
     elif prompt == "drawer":
         print "You sneek a peek inside, and see a glitter of silver, and assume it to be silverware. A more through investigation"
 	print "reveals a surprise: a pistol, equiped with what seems to be silver bullets." 
-        if 'wooden stake' not in inventory:
+        if 'pistol with silver bullets' not in inventory:
             print "You now have a pistol with silver bullets."
 	    inventory.append('pistol with silver bullets')
     	else:
