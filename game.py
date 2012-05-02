@@ -154,7 +154,7 @@ def vampire_room():
 
 def bigboss_room():
     global inventory
-    print "You insert the first key, and then the other, and sturn them both in sync. You hear the sound of a loud"
+    print "You insert the first key, and then the other, and turn them both in sync. You hear the sound of a loud"
     print "deadbolt pulling back and suddenly the door glides open. You rub your eyes because you can't believe what"
     print "you're seeing; a 10 foot tall troll towering over you. The first thing you notice is the stench...it's thick"
     print "matted fur seems to have trapped bits and pieces of it last meal, and some of it looks human. It's ugly face"
