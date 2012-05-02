@@ -2,3 +2,5 @@ Nathan Rinderer, Jeffry Ozimek, and Gregory Ecock
 
 We made a simple terminal, text adventure game.  You navigate and interact with the environment through 
 typing in valid commands.  The ultimate goal is to escape a haunted castle.
+
+You can either make this program executable and run it as './game.py' or run it directly with python, as 'python game.py'.
