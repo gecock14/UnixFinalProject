@@ -61,10 +61,10 @@ def start_game():
     print "open in horror. Who are you? Where are you? Your mind screams in the realization that you have no memory, no" 
     print "anything. You blink into the darkness trying to adjust to the minimal lighting, and slowly the outline of the"
     print "door that must have been shut appears. You struggle to your feet, every joint screaming in protest, and"
-    print "trudge towards the door, your heart beat seeming louder with each step."
-    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down a dank, dripping hallway. The smell of mold invades your nostrils,"
-    print "souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
-    print "Summoning the stregth to carry on, you take small steps, investigating the 7 doors branching off the grim grooto."
+    print "trudge towards the door, your heart beat seeming louder with each step You reach the door and push slowly, "
+    print "and with a loud creak, you find yourself looking down a dank, dripping hallway. The smell of mold invades your"
+    print "nostrils, souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
+    print "Summoning the strength to carry on, you take small steps, investigating the 7 doors branching off the grim grooto."
     print "Press 's' to start your adventure."
     while(1):
 	choice = raw_input('==> ').lower()
@@ -154,7 +154,7 @@ def vampire_room():
 
 def bigboss_room():
     global inventory
-    print "You insert the first key, and then the other, and sturn them both in sync. You hear the sound of a loud"
+    print "You insert the first key, and then the other, and turn them both in sync. You hear the sound of a loud"
     print "deadbolt pulling back and suddenly the door glides open. You rub your eyes because you can't believe what"
     print "you're seeing; a 10 foot tall troll towering over you. The first thing you notice is the stench...it's thick"
     print "matted fur seems to have trapped bits and pieces of it last meal, and some of it looks human. It's ugly face"
