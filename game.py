@@ -62,6 +62,9 @@ def start_game():
     print "anything. You blink into the darkness trying to adjust to the minimal lighting, and slowly the outline of the"
     print "door that must have been shut appears. You struggle to your feet, every joint screaming in protest, and"
     print "trudge towards the door, your heart beat seeming louder with each step."
+    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down dank, dripping hallway. The smell of mold invades your nostrils,"
+    print "souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
+    print "Summoning the stregth to carry on, you take small steps, investigating the 7 doors branching off the grim grooto."
     print "Press 's' to start your adventure."
     while(1):
 	choice = raw_input('==> ').lower()
@@ -76,10 +79,7 @@ def start_game():
 def enter_castle():
     global keys
     os.system('clear')
-    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down dank, dripping hallway. The smell of mold invades your nostrils,"
-    print "souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
-    print "Summoning the stregth to carry on, you take small steps, investigating the 7 doors branching off the grim"
-    print "grotto. The first door is labeled 'Dungeon', and you discover that it is from here the foul stench eminates."
+    print "The first door is labeled 'Dungeon', and you discover that it is from here the foul stench eminates."
     print "Next to it is a door labeled 'Bedroom', and you notice it is opened just a small crack. On the other side of"
     print "hall are two more doors, the first labeled 'Kitchen', and the other, 'Library'. Making your way past all these"
     print "doors, you see at the end of the hall, a set of three doors side by side. Just the sight of the 'middle' door"
@@ -237,6 +237,7 @@ def start():
             state = start_game()
 
 def dungeon_room():
+    os.system('clear')
     print "You open the door an a wall of stench hits you like a brick. Determined none-the-less, you begin"
     print "down a long set of stairs. Upon reaching the landing, you peer into the gloom, and are taken agasht"
     print "by what you see. This was clearly used as a torture chamber, filled from wall to wall with terrible"
@@ -263,11 +264,12 @@ def prompt_dungeon_room():
 	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
 	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand."
 	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
-    prompt_dungeon_room()	
+    keep_searching_dungeon()	
 
 
 def kitchen_room():
     global inventory
+    os.system('clear')
     print "The door grates open with a terrible screech, exposing a kitchen in total disarray. Half decayed food"
     print "and other wet matter youd rather not guess about, coveres the floor with a sticky layer of film. "
     print "Silverware is strewn about, and all of the doors and drawers hang agape. Three places of intrest present"
@@ -291,12 +293,13 @@ def prompt_kitchen_room():
         print "The collapsed store room reveals nothing but moldy food and scurrying insects. Nothing in here."
     elif prompt == "sink":
 	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here."
-    prompt_kitchen_room()
+    keep_searching_kitchen()
 
 
 
 def bedroom_room():
     global inventory
+    os.system('clear')
     print "As the door creaks open, and you slink in as quietly as possible, it occurs to you that this room is"
     print "spotless and clean...until you glance at the sheets and see that they are covered in blood. Mildly"
     print "disturbed, you glance around, and see two more places of intrest; under the bed itself, and inside"
@@ -317,10 +320,11 @@ def prompt_bedroom_room():
     elif prompt == "under":
         print "Gathering your courage, you lean over, and prepare to lift the skirt. You sneek a quick peek, and are relieved"
 	print "that nothing is waiting for you. However, there is nothing of value."
-    prompt_bedroom_room()
+    keep_searching_bedroom()
 
 def library_room():
     global inventory
+    os.system('clear')
     print "The door to the library opens efortlessly, exposing the winding stairs within. Taking them upwards,"
     print "you enter into a study, lined with bookshelves and curios. Three items catch your eye, a conspicuous"
     print "'bookshelf', a 'desk', and a 'globe'. Which do you search?"
@@ -338,6 +342,46 @@ def prompt_library_room():
         print "You find nothing but a few sheets of paper written in an oblique language."
     elif prompt == "globe":
         print "It's interesting because it doesn't seem to be a globe of Earth, but otherwise nothing useful."
-    prompt_library_room()
+    keep_searching_library()
+
+def keep_searching_kitchen():
+    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+    prompt = raw_input('==> ').lower()
+    if prompt == "back":
+        enter_castle()
+    elif prompt == "search":
+        kitchen_room()
+    else:
+        keep_searching_kitchen()
+
+def keep_searching_dungeon():
+    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+    prompt = raw_input('==> ').lower()
+    if prompt == "back":
+        enter_castle()
+    elif prompt == "search":
+        dungeon_room()
+    else:
+        keep_searching_dungeon()
+
+def keep_searching_library():
+    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+    prompt = raw_input('==> ').lower()
+    if prompt == "back":
+        enter_castle()
+    elif prompt == "search":
+        library_room()
+    else:
+        keep_searching_library()
+
+def keep_searching_bedroom():
+    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+    prompt = raw_input('==> ').lower()
+    if prompt == "back":
+        enter_castle()
+    elif prompt == "search":
+        bedroom_room()
+    else:
+        keep_searching_bedroom()
 
 start()
