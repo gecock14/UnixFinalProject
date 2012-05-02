@@ -282,7 +282,7 @@ def prompt_dungeon_room():
 	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
 	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand."
 	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
-    keep_searching_dungeon()	
+    keep_searching("dungeon")	
 
 
 def kitchen_room():
@@ -311,7 +311,7 @@ def prompt_kitchen_room():
         print "The collapsed store room reveals nothing but moldy food and scurrying insects. Nothing in here."
     elif prompt == "sink":
 	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here."
-    keep_searching_kitchen()
+    keep_searching("kitchen")
 
 
 
@@ -338,7 +338,7 @@ def prompt_bedroom_room():
     elif prompt == "under":
         print "Gathering your courage, you lean over, and prepare to lift the skirt. You sneek a quick peek, and are relieved"
 	print "that nothing is waiting for you. However, there is nothing of value."
-    keep_searching_bedroom()
+    keep_searching("bedroom")
 
 def library_room():
     global inventory
@@ -360,46 +360,25 @@ def prompt_library_room():
         print "You find nothing but a few sheets of paper written in an oblique language."
     elif prompt == "globe":
         print "It's interesting because it doesn't seem to be a globe of Earth, but otherwise nothing useful."
-    keep_searching_library()
+    keep_searching("library")
 
-def keep_searching_kitchen():
-    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+def keep_searching(room):
+    print "Type 'b' to go back to the hall or 's' to keep searching the", room
     prompt = raw_input('==> ').lower()
-    if prompt == "back":
+    if prompt == "b":
         enter_castle()
-    elif prompt == "search":
-        kitchen_room()
+    elif prompt == "s":
+        if room == "bedroom":
+            bedroom_room()
+        elif room == "dungeon":
+	    dungeon_room()
+        elif room == "kitchen":
+	    kitchen_room()
+        elif room == "library":
+	    library_room()
     else:
-        keep_searching_kitchen()
+        keep_searching(room)
 
-def keep_searching_dungeon():
-    print "Type 'back' to go back to the hall or 'search' to keep searching the dungeon."
-    prompt = raw_input('==> ').lower()
-    if prompt == "back":
-        enter_castle()
-    elif prompt == "search":
-        dungeon_room()
-    else:
-        keep_searching_dungeon()
 
-def keep_searching_library():
-    print "Type 'back' to go back to the hall or 'search' to keep searching the library."
-    prompt = raw_input('==> ').lower()
-    if prompt == "back":
-        enter_castle()
-    elif prompt == "search":
-        library_room()
-    else:
-        keep_searching_library()
-
-def keep_searching_bedroom():
-    print "Type 'back' to go back to the hall or 'search' to keep searching the bedroom."
-    prompt = raw_input('==> ').lower()
-    if prompt == "back":
-        enter_castle()
-    elif prompt == "search":
-        bedroom_room()
-    else:
-        keep_searching_bedroom()
 
 start()
