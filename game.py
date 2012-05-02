@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
+#Imports and setup
 import getpass, fileinput, os
 from sys import stdin, stdout, stderr, exit
 
+#Global variables
 global keys
 keys = 0
 global defeated
@@ -10,7 +12,7 @@ defeated = []
 global inventory
 inventory = []
 
-
+#This function indtroduces the game and give the player options to se instructions or start
 def intro_screen():
     valid = 0
     os.system('clear')
@@ -29,6 +31,7 @@ def intro_screen():
 	elif selectedOption == 'quit':
 	    exit(0)
 
+#This is called if the user asks to see the instructions, it opens and displays the instruction file
 def instruction_screen():
     os.system('clear')
     try:
@@ -46,7 +49,7 @@ def instruction_screen():
         selectedOption = 'i'
     return selectedOption
 
-
+#This function displays the intro monolouge, and establises some variables, waiting for the user to start the game
 def start_game():
     global keys
     keys = 0
@@ -75,7 +78,7 @@ def start_game():
     	else:
             print "That's not an option, try 's' to enter the castle or 'quit' to end the game.\n"
 
-
+#This function is the true starting point of the game, it lists the room choices, the inventory, and the key count
 def enter_castle():
     global keys
     os.system('clear')
@@ -113,7 +116,7 @@ def enter_castle():
 	elif(choice == 'bedroom'):
 	    bedroom_room()
 
-
+#This is called when the player enters the werewolf room, it either lets the player fight it, or kicks them out if they don't have the right tools
 def werewolf_room():
     global inventory
     global defeated
@@ -132,8 +135,7 @@ def werewolf_room():
 	print "The werewolf remains lying on the floor."
 	return_main()
 
-
-
+#This is called when the player enters the vampire room, it either lets the player fight it, or kicks them out if they don't have the right tools
 def vampire_room():
     global inventory
     global defeated
@@ -151,7 +153,7 @@ def vampire_room():
 	print "All that remains of the vampire is a pile of ash."
 	return_main()
 
-
+#This fucntion is called for the final boss fight. It keeps track of your choices, because you must put them in the the right order
 def bigboss_room():
     global inventory
     print "You insert the first key, and then the other, and turn them both in sync. You hear the sound of a loud"
@@ -198,8 +200,7 @@ def bigboss_room():
 	else:
 	    print "Invalid Action. Try:"
 
-
-
+#This function is called when you win the game, it waits for the player to restart the game
 def end_game():
     print "You blink, and blink again in the darkness. You realize that you're in your own bed, in your own house! It was"
     print "just a dream! Feeling infinitly better, you retreat back under your covers. In the gloom, you hear your closet door"
@@ -210,7 +211,7 @@ def end_game():
         if(raw_input('==> ').lower() == 'm'):
             start()
 
-
+#This is the function used to fight the mini bosses, depending on the item and the boss 
 def use_item(boss, item):
     global defeated
     global keys
@@ -234,21 +235,19 @@ def use_item(boss, item):
 	use_item(boss, item)
     return_main()
 
-
-
+#This kicks the player out of a room if they fail, it recieves the reason why via parameters
 def kicked(reason):
     print reason
     return_main()
 
-
-
+#This is called when the player asks to return to the main hall
 def return_main():
     print "Press 'b' to return to the main hall."
     while(1):
         if(raw_input('==> ').lower() == 'b'):
             enter_castle()
 
-
+#This function is the high level cordinator, it makes sure everything is called appropriatly
 def start():
     state = 'b'
     while(1):
@@ -259,6 +258,7 @@ def start():
         elif state == 's':
             state = start_game()
 
+#This function defines the various cases in the Dungeon room
 def dungeon_room():
     os.system('clear')
     print "You open the door an a wall of stench hits you like a brick. Determined none-the-less, you begin"
@@ -269,6 +269,7 @@ def dungeon_room():
     print "deep 'crevice' in the back wall. Where do you search?"
     prompt_dungeon_room()
 
+#This is the prompt for the dungeon room
 def prompt_dungeon_room():
     global inventory
     prompt = raw_input('==> ').lower()
@@ -289,7 +290,7 @@ def prompt_dungeon_room():
 	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
     keep_searching("dungeon")	
 
-
+#This function defines the various cases in the Kitchen room
 def kitchen_room():
     global inventory
     os.system('clear')
@@ -299,6 +300,7 @@ def kitchen_room():
     print "themselves; the knife 'drawer', the 'pantry', and the liquid-filled 'sink'. Where do you search?"
     prompt_kitchen_room()
 
+#This is the prompt for the kitchen room
 def prompt_kitchen_room():
     global inventory
     prompt = raw_input('==> ').lower()
@@ -318,8 +320,7 @@ def prompt_kitchen_room():
 	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here."
     keep_searching("kitchen")
 
-
-
+#This function defines the various cases in the Bedroom
 def bedroom_room():
     global inventory
     os.system('clear')
@@ -329,6 +330,7 @@ def bedroom_room():
     print "an ornate and gothic dresser to the side. Where do you search, the 'sheets', the 'dresser', or 'under' the bed?"
     prompt_bedroom_room()
 
+#This is the prompt for the bedroom
 def prompt_bedroom_room():
     global inventory
     prompt = raw_input('==> ').lower()
@@ -345,6 +347,7 @@ def prompt_bedroom_room():
 	print "that nothing is waiting for you. However, there is nothing of value."
     keep_searching("bedroom")
 
+#This function defines the various cases in the Library room
 def library_room():
     global inventory
     os.system('clear')
@@ -353,6 +356,7 @@ def library_room():
     print "'bookshelf', a 'desk', and a 'globe'. Which do you search?"
     prompt_library_room()
 
+#This is the prompt for the library room
 def prompt_library_room():
     global inventory
     prompt = raw_input('==> ').lower()
@@ -367,6 +371,7 @@ def prompt_library_room():
         print "It's interesting because it doesn't seem to be a globe of Earth, but otherwise nothing useful."
     keep_searching("library")
 
+#This is the function used to search once in a room
 def keep_searching(room):
     print "Type 'b' to go back to the hall or 's' to keep searching the", room
     prompt = raw_input('==> ').lower()
@@ -385,5 +390,5 @@ def keep_searching(room):
         keep_searching(room)
 
 
-
+#This is the only true non-cascade function call, the 'main' so to speak
 start()
