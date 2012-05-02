@@ -62,7 +62,7 @@ def start_game():
     print "anything. You blink into the darkness trying to adjust to the minimal lighting, and slowly the outline of the"
     print "door that must have been shut appears. You struggle to your feet, every joint screaming in protest, and"
     print "trudge towards the door, your heart beat seeming louder with each step."
-    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down dank, dripping hallway. The smell of mold invades your nostrils,"
+    print "You reach the door and push slowly, and with a loud creak, you find yourself looking down a dank, dripping hallway. The smell of mold invades your nostrils,"
     print "souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
     print "Summoning the stregth to carry on, you take small steps, investigating the 7 doors branching off the grim grooto."
     print "Press 's' to start your adventure."
@@ -373,7 +373,7 @@ def keep_searching_kitchen():
         keep_searching_kitchen()
 
 def keep_searching_dungeon():
-    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+    print "Type 'back' to go back to the hall or 'search' to keep searching the dungeon."
     prompt = raw_input('==> ').lower()
     if prompt == "back":
         enter_castle()
@@ -383,7 +383,7 @@ def keep_searching_dungeon():
         keep_searching_dungeon()
 
 def keep_searching_library():
-    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+    print "Type 'back' to go back to the hall or 'search' to keep searching the library."
     prompt = raw_input('==> ').lower()
     if prompt == "back":
         enter_castle()
@@ -393,7 +393,7 @@ def keep_searching_library():
         keep_searching_library()
 
 def keep_searching_bedroom():
-    print "Type 'back' to go back to the hall or 'search' to keep searching the kitchen."
+    print "Type 'back' to go back to the hall or 'search' to keep searching the bedroom."
     prompt = raw_input('==> ').lower()
     if prompt == "back":
         enter_castle()
