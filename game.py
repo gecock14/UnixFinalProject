@@ -193,7 +193,12 @@ def bigboss_room():
 		kicked( "You can't get the wooden stake out in time to use it." )
 
 	elif(action == 'pistol with silver bullets'):
-		kicked("You have no bullets left in the chamber")		
+	    kicked("You have no bullets left in the chamber")		
+
+	else:
+	    print "Invalid Action. Try:"
+
+
 
 def end_game():
     print "You blink, and blink again in the darkness. You realize that you're in your own bed, in your own house! It was"
