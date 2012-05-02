@@ -237,7 +237,7 @@ def prompt_dungeon_room():
 	print "Investigation reveals a few scurrying rats, but nothing of value."
     elif prompt == "crevice":
 	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
-	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand.s"
+	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand."
 	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
     prompt_dungeon_room()	
 
