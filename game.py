@@ -348,7 +348,7 @@ def prompt_bedroom_room():
 def library_room():
     global inventory
     os.system('clear')
-    print "The door to the library opens efortlessly, exposing the winding stairs within. Taking them upwards,"
+    print "The door to the library opens effortlessly, exposing the winding stairs within. Taking them upwards,"
     print "you enter into a study, lined with bookshelves and curios. Three items catch your eye, a conspicuous"
     print "'bookshelf', a 'desk', and a 'globe'. Which do you search?"
     prompt_library_room()
