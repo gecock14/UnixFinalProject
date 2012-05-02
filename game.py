@@ -153,35 +153,47 @@ def vampire_room():
 
 
 def bigboss_room():
+    global inventory
     print "You insert the first key, and then the other, and sturn them both in sync. You hear the sound of a loud"
     print "deadbolt pulling back and suddenly the door glides open. You rub your eyes because you can't believe what"
     print "you're seeing; a 10 foot tall troll towering over you. The first thing you notice is the stench...it's thick"
     print "matted fur seems to have trapped bits and pieces of it last meal, and some of it looks human. It's ugly face"
-    print "peered down, intent on you, preparing for it's next meal...what do you do?!?"
+    print "peered down, intent on you, preparing for it's next meal. Before you can even think to move, he reaches his big,"
+    print "nasty hand down and grabs you. He lifts you to his face...what do you do?!?"
     dodged = 0
-    grabbed = 0
-    swing = 0
+    punched = 0
+    stabbed = 0
     while(1):
+	print inventory[0],", ", inventory[1],",  dodge, punch"
         action = raw_input('==> ').lower()
-        if(action == 'dodge' and dodged == 0):
-            print "**Pass phase 1**"
+        if(action == 'punch' and punched == 0):
+            print "Before the troll can eat you, you punch him right in his eye, causing him to immediately drop you on the floor."
+	    print "The troll growls angrily in pain and then begins to charge at you. What do you do?!"
+            punched = 1
+        elif(action == 'punch' and punched == 1 and dodged == 0):
+            kicked("Your punch goes unnoticed against the charging troll")
+	elif(action == 'punch' and dodged == 1):
+	    kicked("Punching the trolls eye may have hurt him, but a punch to his body does nothing.")
+        
+	elif(action == 'dodge' and dodged == 0 and punched == 1):
+	    print "Just as the troll gets to you, you roll out of the way."
+            print "The troll goes running past you into the wall, stumbles then falls to the floor."
             dodged = 1
-        elif(action == 'jump'):
-            kicked("**Wrong option**")
-        elif(action == 'punch'):
-            kicked("**wrong option**")
-        elif(action == 'grab' and dodged == 1 and grabbed == 0):
-            print "**Pass phase 2**"
-            grabbed = 1
-        elif(action == 'kick'):
-            kicked( "**wrong option**")
-        elif(action == 'swing' and grabbed == 1):
-            print "**Pass Phase 3**"
-        elif(action == 'drop' and swing == 0):
-            kicked("**wrong option**")
-        elif(action == 'throw' and swing == 0):
-            print "***Big Boss Dies***"
-            end_game()
+	elif(action == 'dodge' and dodged == 1):
+	    kicked("While you are dodging nothing, the troll gets up and eats you")
+	elif(action == 'dodge' and punched == 0):
+	    kicked("The troll eats you while you try and doged his mouth.")
+
+	elif(action == 'wooden stake'):
+	    if(dodged == 1):
+            	print "As the troll is trying to get up you stab the wooden stake into its back."
+	    	print "The troll lets out an agonizing scream, tries to get up again and then collappses to his death."
+	    	end_game()
+	    elif(punched == 1 or punched == 0):
+		kicked( "You can't get the wooden stake out in time to use it." )
+
+	elif(action == 'pistol with silver bullets'):
+		kicked("You have no bullets left in the chamber")		
 
 def end_game():
     print "You blink, and blink again in the darkness. You realize that you're in your own bed, in your own house! It was"
@@ -216,6 +228,8 @@ def use_item(boss, item):
         print "Invalid option. Try 'u' to use the ", item
 	use_item(boss, item)
     return_main()
+
+
 
 def kicked(reason):
     print reason
