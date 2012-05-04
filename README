@@ -1,7 +1,15 @@
-Nathan Rinderer, Jeffrey Ozimek, and Gregory Ecock
+﻿“The Thing Behind the Walls”
+- a Text Adventure Game
+***************************************************************
+By: Nathan Rinderer, Jeffrey Ozimek, and Gregory Ecock
 
-We made a simple terminal, text adventure game. You navigate and interact with 
-the environment through typing in valid commands.  The ultimate goal is to 
-escape a haunted castle.
 
-You can either make this program executable and run it as './game.py' or run it directly with python, as 'python game.py'.
+Description:
+
+This is a simple terminal, text adventure game. You navigate and interact with the environment by typing in commands as you search the castle. You'll find yourself in some frightening situations as you try to remember how you ended up there and try to make your way out. The ultimate goal is to escape the haunted castle but will you make it out alive? Only time will tell.
+
+Instructions:
+
+1) Download the project folder and included files to your local machine. The best way to do this may be to fork the project and then clone it to your local drive.
+
+2) The main file that actually runs is game.py. You can either make this program executable and run it as './game.py' or run it directly with python, as 'python game.py' in the terminal window.
