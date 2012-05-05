@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 
 #Imports and setup
 import getpass, fileinput, os
@@ -12,7 +12,7 @@ defeated = []
 global inventory
 inventory = []
 
-#This function indtroduces the game and give the player options to se instructions or start
+#This function introduces the game and give the player options to see instructions or start
 def intro_screen():
     valid = 0
     os.system('clear')
@@ -20,6 +20,7 @@ def intro_screen():
     print "Welcome to The Thing Behind the Walls!"
     print "To read the instructions, press 'i'."
     print "To begin the game press, 's'."
+    print "To exit and return to the terminal press, 'q'."
     while (not valid):
 	selectedOption = raw_input('==> ').lower()
         if selectedOption == 'i':
@@ -28,7 +29,7 @@ def intro_screen():
     	elif selectedOption == 's':
 	    return selectedOption
 	    valid = 1
-	elif selectedOption == 'quit':
+	elif selectedOption == 'q':
 	    exit(0)
 
 #This is called if the user asks to see the instructions, it opens and displays the instruction file
@@ -49,7 +50,7 @@ def instruction_screen():
         selectedOption = 'i'
     return selectedOption
 
-#This function displays the intro monolouge, and establises some variables, waiting for the user to start the game
+#This function displays the intro monologue, and establishes some variables, waiting for the user to start the game
 def start_game():
     global keys
     keys = 0
@@ -67,7 +68,7 @@ def start_game():
     print "trudge towards the door, your heart beat seeming louder with each step You reach the door and push slowly, "
     print "and with a loud creak, you find yourself looking down a dank, dripping hallway. The smell of mold invades your"
     print "nostrils, souring your expression. You again wonder, where you are, or even who you are, terror rising in your throat."
-    print "Summoning the strength to carry on, you take small steps, investigating the 7 doors branching off the grim grooto."
+    print "Summoning the strength to carry on, you take small steps, investigating the 7 doors branching off the grim grotto."
     print "Press 's' to start your adventure."
     while(1):
 	choice = raw_input('==> ').lower()
@@ -82,7 +83,7 @@ def start_game():
 def enter_castle():
     global keys
     os.system('clear')
-    print "The first door is labeled 'Dungeon', and you discover that it is from here the foul stench eminates."
+    print "The first door is labeled 'Dungeon', and you discover that it is from here the foul stench emanates."
     print "Next to it is a door labeled 'Bedroom', and you notice it is opened just a small crack. On the other side of"
     print "hall are two more doors, the first labeled 'Kitchen', and the other, 'Library'. Making your way past all these"
     print "doors, you see at the end of the hall, a set of three doors side by side. Just the sight of the 'middle' door"
@@ -153,7 +154,7 @@ def vampire_room():
 	print "All that remains of the vampire is a pile of ash."
 	return_main()
 
-#This fucntion is called for the final boss fight. It keeps track of your choices, because you must put them in the the right order
+#This function is called for the final boss fight. It keeps track of your choices, because you must put them in the the right order
 def bigboss_room():
     global inventory
     print "You insert the first key, and then the other, and turn them both in sync. You hear the sound of a loud"
@@ -184,12 +185,12 @@ def bigboss_room():
 	elif(action == 'dodge' and dodged == 1):
 	    kicked("While you are dodging nothing, the troll gets up and eats you")
 	elif(action == 'dodge' and punched == 0):
-	    kicked("The troll eats you while you try and doged his mouth.")
+	    kicked("The troll eats you while you try and dodge his mouth.")
 
 	elif(action == 'wooden stake'):
 	    if(dodged == 1):
             	print "As the troll is trying to get up you stab the wooden stake into its back."
-	    	print "The troll lets out an agonizing scream, tries to get up again and then collappses to his death."
+	    	print "The troll lets out an agonizing scream, tries to get up again and then collapses to his death."
 	    	end_game()
 	    elif(punched == 1 or punched == 0):
 		kicked( "You can't get the wooden stake out in time to use it." )
@@ -203,7 +204,7 @@ def bigboss_room():
 #This function is called when you win the game, it waits for the player to restart the game
 def end_game():
     print "You blink, and blink again in the darkness. You realize that you're in your own bed, in your own house! It was"
-    print "just a dream! Feeling infinitly better, you retreat back under your covers. In the gloom, you hear your closet door"
+    print "just a dream! Feeling infinitely better, you retreat back under your covers. In the gloom, you hear your closet door"
     print "creak open..."
     print "The End...?"
     while(1):
@@ -228,14 +229,14 @@ def use_item(boss, item):
 	print "The beast lunges at you, narrowly missing your outstretched arm. You whip your pistol around and put two rounds"
      	print "between his eyes. Pulling the key off from around his neck, you continue onwards."
     elif(boss == "vampire"):
-	print "Summoning your last vestigaes of courage, you jab the wooden stake into the vampires heart, and"
+	print "Summoning your last vestiges of courage, you jab the wooden stake into the vampires heart, and"
 	print "the vampire burns away, revealing a key. You bend down and take the key."
     else:
         print "Invalid option. Try 'u' to use the ", item
 	use_item(boss, item)
     return_main()
 
-#This kicks the player out of a room if they fail, it recieves the reason why via parameters
+#This kicks the player out of a room if they fail, it receives the reason why via parameters
 def kicked(reason):
     print reason
     return_main()
@@ -247,7 +248,7 @@ def return_main():
         if(raw_input('==> ').lower() == 'b'):
             enter_castle()
 
-#This function is the high level cordinator, it makes sure everything is called appropriatly
+#This function is the high level coordinator, it makes sure everything is called appropriately
 def start():
     state = 'b'
     while(1):
@@ -262,10 +263,10 @@ def start():
 def dungeon_room():
     os.system('clear')
     print "You open the door an a wall of stench hits you like a brick. Determined none-the-less, you begin"
-    print "down a long set of stairs. Upon reaching the landing, you peer into the gloom, and are taken agasht"
+    print "down a long set of stairs. Upon reaching the landing, you peer into the gloom, and are taken aghast"
     print "by what you see. This was clearly used as a torture chamber, filled from wall to wall with terrible"
     print "looking contraptions and sharp, terrifying instruments of indeterminate use. There seems to be three"
-    print "places to of intrest; a decaying skeleton's 'hand', the back of a rusting torture 'cage', and a long"
+    print "places to of interest; a decaying skeleton's 'hand', the back of a rusting torture 'cage', and a long"
     print "deep 'crevice' in the back wall. Where do you search?"
     prompt_dungeon_room()
 
@@ -286,7 +287,7 @@ def prompt_dungeon_room():
 	print "Investigation reveals a few scurrying rats, but nothing of value."
     elif prompt == "crevice":
 	print "You don't want to stick your hand in this dark crack, but you want to leave this castle even more. You gingerly"
-	print "insert your finger and begin to search the cranies when you feel a light brush against the back of your hand."
+	print "insert your finger and begin to search the crannies when you feel a light brush against the back of your hand."
 	print "Yanking your hand out in a panic, dozens of spiders crawl away. Nothing in there." 
     keep_searching("dungeon")	
 
@@ -295,8 +296,8 @@ def kitchen_room():
     global inventory
     os.system('clear')
     print "The door grates open with a terrible screech, exposing a kitchen in total disarray. Half decayed food"
-    print "and other wet matter youd rather not guess about, coveres the floor with a sticky layer of film. "
-    print "Silverware is strewn about, and all of the doors and drawers hang agape. Three places of intrest present"
+    print "and other wet matter you'd rather not guess about, covers the floor with a sticky layer of film. "
+    print "Silverware is strewn about, and all of the doors and drawers hang agape. Three places of interest present"
     print "themselves; the knife 'drawer', the 'pantry', and the liquid-filled 'sink'. Where do you search?"
     prompt_kitchen_room()
 
@@ -308,8 +309,8 @@ def prompt_kitchen_room():
         enter_castle()
     elif prompt == "drawer": 
         if 'pistol with silver bullets' not in inventory:
-	    print "You sneek a peek inside, and see a glitter of silver, and assume it to be silverware. A more through investigation"
-            print "reveals a surprise: a pistol, equiped with what seems to be silver bullets."
+	    print "You sneak a peek inside, and see a glitter of silver, and assume it to be silverware. A more through investigation"
+            print "reveals a surprise: a pistol, equipped with what seems to be silver bullets."
             print "You now have a pistol with silver bullets."
 	    inventory.append('pistol with silver bullets')
     	else:
@@ -317,7 +318,7 @@ def prompt_kitchen_room():
     elif prompt == "pantry":
         print "The collapsed store room reveals nothing but moldy food and scurrying insects. Nothing in here."
     elif prompt == "sink":
-	print "Pluging your nose with one hand, you dunk the other into the filth and seach the basin via touch. Nothing in here."
+	print "Plugging your nose with one hand, you dunk the other into the filth and search the basin via touch. Nothing in here."
     keep_searching("kitchen")
 
 #This function defines the various cases in the Bedroom
@@ -326,7 +327,7 @@ def bedroom_room():
     os.system('clear')
     print "As the door creaks open, and you slink in as quietly as possible, it occurs to you that this room is"
     print "spotless and clean...until you glance at the sheets and see that they are covered in blood. Mildly"
-    print "disturbed, you glance around, and see two more places of intrest; under the bed itself, and inside"
+    print "disturbed, you glance around, and see two more places of interest; under the bed itself, and inside"
     print "an ornate and gothic dresser to the side. Where do you search, the 'sheets', the 'dresser', or 'under' the bed?"
     prompt_bedroom_room()
 
@@ -343,7 +344,7 @@ def prompt_bedroom_room():
         print "Pulling open the door, a black figure jumps out and at your face. Smacking with your hand, you notice that it"
 	print "is a bat, and calm down as it flies away. Nothing else of value in here"
     elif prompt == "under":
-        print "Gathering your courage, you lean over, and prepare to lift the skirt. You sneek a quick peek, and are relieved"
+        print "Gathering your courage, you lean over, and prepare to lift the skirt. You sneak a quick peek, and are relieved"
 	print "that nothing is waiting for you. However, there is nothing of value."
     keep_searching("bedroom")
 
@@ -364,7 +365,7 @@ def prompt_library_room():
         enter_castle()
     elif prompt == "bookshelf":
         print "You peruse the shelf, seeing strange title like 'Necromicon' and 'Grimore Auditora', as well as dozens of"
-	print "book titles that seem to be in another languge. Quite interesting, but not useful in the least."
+	print "book titles that seem to be in another language. Quite interesting, but not useful in the least."
     elif prompt == "desk":
         print "You find nothing but a few sheets of paper written in an oblique language."
     elif prompt == "globe":
