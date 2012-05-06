@@ -13,3 +13,6 @@ Instructions:
 1) Download the project folder and included files to your local machine. The best way to do this may be to fork the project and then clone it to your local drive.
 
 2) The main file that actually runs is game.py. You can either make this program executable and run it as './game.py' or run it directly with python, as 'python game.py' in the terminal window.
+
+**test folder**
+This contains some more complete code on a class based implementation of our project. It is not complete however, because we could not get the functionality up to par with our original project.
