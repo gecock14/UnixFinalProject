@@ -7,12 +7,8 @@ from sys import stdin, stdout, stderr, exit
 #Global variables
 global keys
 keys = 0
-global defeated
-defeated = []
 global visited
 visited = []
-global inventory
-inventory = []
 
 
 class searchRoom:
@@ -37,10 +33,10 @@ class searchRoom:
 	choice = raw_input('==> ')
 	if(choice in self.destinations):
 	    if(self.destinations[choice] == 5 and keys != 2):
-	    	print "\nYou need two keys to get in"
+	    	print "\nYou need two keys to escape!"
 	    	self.gotoRoom(4)
 	    elif(self.destinations[choice] == 5 and keys == 2):
-	    	print "\nYou face the Boss!"
+	    	print "You've escaped!"
 	    	endGame()
 	    else:
 		self.gotoRoom(self.destinations[choice])
@@ -92,11 +88,11 @@ rooms[3].key = 0
 rooms[3].destinations = {'Hallway':4}
 rooms[3].description = "You are in the Library"
 rooms[4].key = 0
-rooms[4].destinations = {'Dungeon':0, 'Kitchen':1, 'Bedroom':2, 'Library':3, 'Boss':5}
+rooms[4].destinations = {'Dungeon':0, 'Kitchen':1, 'Bedroom':2, 'Library':3, 'Escape':5}
 rooms[4].description = "You are in the Hallway"
 rooms[5].key = 0
 rooms[5].destinations = {'Hallway':4}
-rooms[5].description = "You are in the Boss room"
+rooms[5].description = "You've Escaped This Time"
 
 os.system('clear')
 rooms[4].enter()
