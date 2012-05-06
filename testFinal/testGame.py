@@ -23,10 +23,11 @@ class searchRoom:
     
 
     def enter(self):
-	print "\n\n\n", self.description
+	print "\n",self.description
 	print "Rooms:",
 	for option in self.destinations:
 	    print option,
+	print ""
 	self.prompt()
 
 
@@ -34,17 +35,18 @@ class searchRoom:
 	self.checkForKey()
 	print "Pick a room: "
 	choice = raw_input('==> ')
-	if(choice in self.destinations and choice != 'Boss'):
-	    self.gotoRoom(self.destinations[choice])
+	if(choice in self.destinations):
 	    if(self.destinations[choice] == 5 and keys != 2):
-	    	print "You need two keys to get in"
+	    	print "\nYou need two keys to get in"
 	    	self.gotoRoom(4)
 	    elif(self.destinations[choice] == 5 and keys == 2):
-	    	print "You face the Boss!"
+	    	print "\nYou face the Boss!"
 	    	endGame()
+	    else:
+		self.gotoRoom(self.destinations[choice])
 	else:
-	    print "Invalid Room"
-	    self.prompt()
+	    print "\nInvalid Room"
+	    self.enter()
 
 
     def gotoRoom(self, where):
@@ -56,7 +58,7 @@ class searchRoom:
 	    global keys
 	    keys = keys + self.key
 	    visited.append(self.name)
-	print "\nKeys: ", keys
+	print "Keys: ", keys
 	
 
 
@@ -96,5 +98,5 @@ rooms[5].key = 0
 rooms[5].destinations = {'Hallway':4}
 rooms[5].description = "You are in the Boss room"
 
-
+os.system('clear')
 rooms[4].enter()
